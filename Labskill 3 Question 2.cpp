@@ -28,13 +28,12 @@ double checkHighestTemp(double tempInput, string day, double &maxTemp, string &m
 
 
 //input function
-
-
-
-
-
-
-
+double getTemperature()
+{
+    double temperature;
+    cin >> temperature;
+    return temperature;
+}
 
 //Update max temperature and days 
 double checkHighestTemp(double tempInput, string day, double &maxTemp, string &maxDays) {
