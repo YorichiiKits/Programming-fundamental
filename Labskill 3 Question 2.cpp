@@ -24,6 +24,19 @@ return 0 ;
 
 
 //function for days
+string getDay (int number)
+{
+    string days[7] = {
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+};
+return days[number];
+}
 
 
 
