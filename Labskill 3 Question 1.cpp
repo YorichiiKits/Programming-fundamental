@@ -2,7 +2,16 @@
 using namespace std;
 
  //dont forget to add prototype function
- 
+
+
+ //Calculation & output function
+ void displayTable(int num)
+ {
+    for (int i = 0; i <= 10; i++)
+    {
+        cout << i << " x " << num << " = " << i * num << endl;
+    }
+}
  
  //main function
 int main() {
