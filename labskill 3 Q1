@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+//dont forget to add the prototype function down here//
+
+//main function//
 int main() {
     double number;
     char choice;
@@ -14,3 +17,7 @@ int main() {
         
     } while (choice != 'n');
     return 0;
+
+(
+
+//continue with other functions//
