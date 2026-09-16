@@ -8,7 +8,13 @@ double checkHighestTemp(double tempInput, string day, double &maxTemp, string &m
 
 
 //main function
-
+#include <iostream>
+using namespace std;
+int main();
+{
+int celcius;
+return 0 ;
+}
 
 
 
