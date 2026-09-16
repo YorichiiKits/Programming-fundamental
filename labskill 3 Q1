@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double number;
+    char choice;
+    
+    do {
+        number = readNumber();
+        calculateMultiply(number);
+        cout << "Want to continue (y-yes / n-no): ";
+        cin >> choice;
+        cout << endl;
+        
+    } while (choice != 'n');
+    return 0;
