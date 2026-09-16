@@ -2,6 +2,25 @@
 using namespace std;
 
  //dont forget to add prototype function
+void displayTable(int num);
+
+ 
+ //main function
+int main() {
+    double number;
+    char choice;
+     do {
+        number = readNumber();
+        displayTable(number);
+        cout << "Want to continue (y-yes/n-no): ";
+        cin >> choice;
+        cout << endl;
+        
+    } while (choice != 'n');
+    return 0;
+}
+
+//input function
 
 
  //Calculation & output function
@@ -12,20 +31,3 @@ using namespace std;
         cout << i << " x " << num << " = " << i * num << endl;
     }
 }
- 
- //main function
-int main() {
-    double number;
-    char choice;
-     do {
-        number = readNumber();
-        calculateMultiply(number);
-        cout << "Want to continue (y-yes/n-no): ";
-        cin >> choice;
-        cout << endl;
-        
-    } while (choice != 'n');
-    return 0;
-}
-
-//add more functions
