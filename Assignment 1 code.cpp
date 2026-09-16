@@ -42,3 +42,21 @@ double deductions(double gross){
 }
 
 //Net salary function - Jen
+double calculateNetSalary(double basicSalary,double overtimeHours,double overtimeRate,double allowances,double epfRate,double socso,double taxRate){
+double overtimePay;
+double grossSalary;
+double epfDeduction;
+double taxDeduction;
+double totalDeductions;
+double netSalary;	
+	overtimePay = overtimeHours * overtimeRate;
+	grossSalary = basicSalary + overtimePay + allowances;
+ 	epfDeduction = basicSalary * epfRate;
+    taxDeduction = grossSalary * taxRate;
+    totalDeductions = epfDeduction + socso + taxDeduction;
+    netSalary = grossSalary - totalDeductions;
+	
+	cout << "Net Salary: RM " << netSalary << endl;
+
+	return netSalary;
+}
