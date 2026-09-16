@@ -21,7 +21,14 @@ int main() {
 }
 
 //input function
+double readNumber()
+{ 
+   double num;
 
+   cout << "Enter a number to multiply: ";
+   cin >> num;
+   return num;
+}
 
  //Calculation & output function
  void displayTable(int num)
