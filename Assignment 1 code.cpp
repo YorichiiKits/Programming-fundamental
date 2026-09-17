@@ -4,6 +4,7 @@ using namespace std;
 
 //prototype function, dont forget yours
 double deductions(double gross);
+double calculateNetSalary(double basicSalary,double overtimeHours,double overtimeRate,double allowances,double epfRate,double socso,double taxRate);
 
 
 
