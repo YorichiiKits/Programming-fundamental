@@ -3,6 +3,7 @@ using namespace std;
 
  //dont forget to add prototype function
 void displayTable(int num);
+double readNumber();
 
  
  //main function
@@ -10,7 +11,7 @@ int main() {
     double number;
     char choice;
      do {
-        number = readNumber();
+        double number = readNumber();
         displayTable(number);
         cout << "Want to continue (y-yes/n-no): ";
         cin >> choice;
