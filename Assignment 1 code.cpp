@@ -9,9 +9,48 @@ double deductions(double gross);
 
 
 //main function - Priscilla
+int main()
+{
+    double basicSalary;
+    double overtimeHours;
+    double overtimeRate;
+    double allowances;
+    double epfRate;
+    double socso;
+    double taxRate;
 
+    double overtimePay;
+    double grossSalary;
+    double totalDeductions;
+    double netSalary;
+	
+    cout << "Enter basic salary: ";
+    cin >> basicSalary;
+    cout << "Enter overtime hours: ";
+    cin >> overtimeHours;
+    cout << "Enter overtime rate: ";
+    cin >> overtimeRate;
+    cout << "Enter allowances: ";
+    cin >> allowances;
+    cout << "Enter EPF rate: ";
+    cin >> epfRate;
+    cout << "Enter SOCSO: ";
+    cin >> socso;
+    cout << "Enter tax rate: ";
+    cin >> taxRate;
 
+    overtimePay = calculateOvertime(overtimeHours, overtimeRate);
+    grossSalary = basicSalary + overtimePay + allowances;
+    totalDeductions = calculateDeductions(
+    basicSalary, grossSalary, epfRate, socso, taxRate);
+    netSalary = calculateNetSalary(grossSalary, totalDeductions);
+	
+    cout << "Gross Salary: " << grossSalary << endl;
+    cout << "Total Deductions: " << totalDeductions << endl;
+    cout << "Net Salary: " << netSalary << endl;
 
+    return 0;
+}
 
 //overtime pay function - Heidi
 
