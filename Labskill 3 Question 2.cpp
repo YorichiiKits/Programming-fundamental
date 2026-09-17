@@ -1,51 +1,60 @@
-//This is the final, fixed code
-
 #include <iostream>
+#include <string>
 using namespace std;
 
-//dont forget to add your prototype function
+// Function prototypes
+string getDay(int number);
 double getTemperature(string day);
 double checkHighestTemp(double temperature, string day, double &maxTemp, string &maxDays);
 
-//main function
-int main(){
+// Main function
+int main() {
     double maxTemp = -999.0;
     string maxDays = "";
 
-    for (int i = 1; i <=7; i++) {
-    	string day;
-    	if (i == 1) day = "Monday";
-    	else if (i == 2) day = "Tuesday";
-    	else if (i == 3) day = "Wednesday";
-    	else if (i == 4) day = "Thursday";
-    	else if (i == 5) day = "Friday";
-    	else if (i == 6) day = "Saturday";
-    	else if (i == 7) day = "Sunday";
+    for (int i = 0; i < 7; i++) {
+        string day = getDay(i); 
         double currentTemp = getTemperature(day);
         checkHighestTemp(currentTemp, day, maxTemp, maxDays);
     }
 
-cout << "The highest temperature is " << maxTemp << " on " << maxDays << endl;
+    cout << "\nThe highest temperature is " << maxTemp << " on " << maxDays << endl;
     return 0;
 }
-//input function
-double getTemperature(string day)
-{
-    double temperature;
-    cout << "Enter temperature for " << day << " (Celsius): ";
-    cin >> temperature;
-    return temperature;
+// Days function
+string getDay(int number) {
+    string days[7] = {
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+    };
+    return days[number];
 }
 
-//Update max temperature and days 
+// Input function
+double getTemperature(string day) {
+    double inputTemperature;
+    cout << "Enter temperature for " << day << " (Celsius): ";
+    cin >> inputTemperature;
+    return inputTemperature;
+}
+
+// Update max temperature and days
 double checkHighestTemp(double temperature, string day, double &maxTemp, string &maxDays) {
     if (temperature > maxTemp) {
         maxTemp = temperature;
-         //set highest day
         maxDays = day;            
     } 
     else if (temperature == maxTemp) {
-        maxDays += ", " + day; 
+        if (maxDays.empty()) {
+            maxDays = day;
+        } else {
+            maxDays += ", " + day; 
+        }
     }
     return maxTemp;
 }
