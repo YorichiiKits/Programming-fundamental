@@ -59,20 +59,13 @@ int main()
 
 
 //gross salary function - Faiesha
+double grosssalary(double basicSalary,double overtimePay,double allowances){
+
 double grossSalary;
-double basicSalary;
-double allowance;
-double overtimePay;
+grossSalary=basicSalary+overtimePay,allowances
 
-cout<<"\nEnter Basic Salary (RM) :";
-cin>>basicSalary;
-cout<<"\nEnter Allowance (RM) :";
-cin>>allowance;
-cout<<"\nEnter Overtime Pay (RM) :";
-cin>>overtimePay;
-
-grossSalary=basicSalary+allowance+overtimePay;
-	
+return grossSalary;
+}
 
 
 
