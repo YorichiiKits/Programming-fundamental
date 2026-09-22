@@ -1,75 +1,43 @@
 #include <iostream>
 using namespace std;
 
-
-//prototype function, dont forget yours
+double overtimePay(void);
+double grossSalary(double otPay);
 double deductions(double gross);
-double calculateNetSalary(double basicSalary,double overtimeHours,double overtimeRate,double allowances,double epfRate,double socso,double taxRate);
+double netSalary(double gross, double totalDeductions);
 
-
-
-
-//main function - Priscilla
-int main()
-{
-    double basicSalary;
-    double overtimeHours;
-    double overtimeRate;
-    double allowances;
-    double epfRate;
-    double socso;
-    double taxRate;
-
-    double overtimePay;
-    double grossSalary;
-    double totalDeductions;
-    double netSalary;
+int main (){
+	double otPay = overtimePay();
+	double gross = grossSalary(otPay);
+	double totalDeduction = deductions(gross);
+	double net = netSalary(gross,totalDeduction);
+    cout << "\nGross Salary: " << gross 
+    cout << "\nTotal Deductions: " << totalDeduction 
+    cout << "\nNet Salary: " << net << endl;
 	
-    cout << "Enter basic salary: ";
-    cin >> basicSalary;
-    cout << "Enter overtime hours: ";
-    cin >> overtimeHours;
-    cout << "Enter overtime rate: ";
-    cin >> overtimeRate;
-    cout << "Enter allowances: ";
-    cin >> allowances;
-    cout << "Enter EPF rate: ";
-    cin >> epfRate;
-    cout << "Enter SOCSO: ";
-    cin >> socso;
-    cout << "Enter tax rate: ";
-    cin >> taxRate;
-
-    overtimePay = calculateOvertime(overtimeHours, overtimeRate);
-    grossSalary = basicSalary + overtimePay + allowances;
-    totalDeductions = calculateDeductions(
-    basicSalary, grossSalary, epfRate, socso, taxRate);
-    netSalary = calculateNetSalary(grossSalary, totalDeductions);
-	
-    cout << "Gross Salary: " << grossSalary << endl;
-    cout << "Total Deductions: " << totalDeductions << endl;
-    cout << "Net Salary: " << netSalary << endl;
-
-    return 0;
+	return 0;
+}
+double overtimePay(void){
+	double hours;
+	double rate;
+	double overtimePay;
+	cout << "Enter overtime hours and overtime rate: ";
+	cin >> hours >> rate;
+	overtimePay = (rate*hours);
+	return overtimePay;
 }
 
-//overtime pay function - Heidi
-
-
-
-
-//gross salary function - Faiesha
-double grosssalary(double basicSalary,double overtimePay,double allowances){
-
-double grossSalary;
-grossSalary=basicSalary+overtimePay,allowances
-
-return grossSalary;
+double grossSalary(double otPay){
+	double grossSalary;
+	double basicSalary;
+	double allowance;
+	cout << "\n Enter basic salary: ";
+	cin >> basicSalary;
+	cout << "\n Enter allowance: ";
+	cin >> allowance;
+	grossSalary = (basicSalary + allowance + otPay);
+	return grossSalary;
 }
-
-
-
-//deductions function - Amar
 double deductions(double gross){
 	double epf;
 	double socso;
@@ -88,22 +56,8 @@ double deductions(double gross){
 	
 }
 
-//Net salary function - Jen
-double calculateNetSalary(double basicSalary,double overtimeHours,double overtimeRate,double allowances,double epfRate,double socso,double taxRate){
-double overtimePay;
-double grossSalary;
-double epfDeduction;
-double taxDeduction;
-double totalDeductions;
-double netSalary;	
-	overtimePay = overtimeHours * overtimeRate;
-	grossSalary = basicSalary + overtimePay + allowances;
- 	epfDeduction = basicSalary * epfRate;
-    taxDeduction = grossSalary * taxRate;
-    totalDeductions = epfDeduction + socso + taxDeduction;
-    netSalary = grossSalary - totalDeductions;
-	
-	cout << "Net Salary: RM " << netSalary << endl;
-
+double netSalary(double gross, double totalDeductions){
+    double netSalary;
+	netSalary = (gross - totalDeductions);
 	return netSalary;
 }
