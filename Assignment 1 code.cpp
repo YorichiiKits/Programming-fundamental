@@ -11,8 +11,8 @@ int main (){
 	double gross = grossSalary(otPay);
 	double totalDeduction = deductions(gross);
 	double net = netSalary(gross,totalDeduction);
-    cout << "\nGross Salary: " << gross 
-    cout << "\nTotal Deductions: " << totalDeduction 
+    cout << "\nGross Salary: " << gross;
+    cout << "\nTotal Deductions: " << totalDeduction;
     cout << "\nNet Salary: " << net << endl;
 	
 	return 0;
