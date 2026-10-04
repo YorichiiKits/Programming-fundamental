@@ -6,58 +6,102 @@ double grossSalary(double otPay);
 double deductions(double gross);
 double netSalary(double gross, double totalDeductions);
 
-int main (){
-	double otPay = overtimePay();
-	double gross = grossSalary(otPay);
-	double totalDeduction = deductions(gross);
-	double net = netSalary(gross,totalDeduction);
-    cout << "\nGross Salary: " << gross;
-    cout << "\nTotal Deductions: " << totalDeduction;
-    cout << "\nNet Salary: " << net << endl;
-	
-	return 0;
-}
-double overtimePay(void){
-	double hours;
-	double rate;
-	double overtimePay;
-	cout << "Enter overtime hours and overtime rate: ";
-	cin >> hours >> rate;
-	overtimePay = (rate*hours);
-	return overtimePay;
+int main() {
+    double otPay = overtimePay();
+    double gross = grossSalary(otPay);
+    double totalDeduction = deductions(gross);
+    double net = netSalary(gross, totalDeduction);
+
+    cout << "\n=============== SALARY SLIP ===============";
+    cout << "\nGross Salary:     RM" << gross; 
+    cout << "\nTotal Deductions: RM" << totalDeduction; 
+    cout << "\nNet Salary:       RM" << net << endl;
+    cout << "===========================================" << endl;
+    return 0;
 }
 
-double grossSalary(double otPay){
-	double grossSalary;
-	double basicSalary;
-	double allowance;
-	cout << "\n Enter basic salary: ";
-	cin >> basicSalary;
-	cout << "\n Enter allowance: ";
-	cin >> allowance;
-	grossSalary = (basicSalary + allowance + otPay);
-	return grossSalary;
-}
-double deductions(double gross){
-	double epf;
-	double socso;
-	double tax;
-	double deduction;
-	cout << "\nEnter epf rate: ";
-	cin >> epf;
-	epf = gross * (epf / 100.0);
-	cout << "\nEnter socso amount: ";
-	cin >> socso;
-	cout << "\nEnter tax rate: ";
-	cin >> tax;
-	tax = gross * (tax / 100.0);
-	deduction = (epf + socso + tax);
-	return deduction;	
-	
+double overtimePay(void) {
+    double hours;
+    double rate;
+    double overtimePay;
+    do {
+        cout << "\nEnter overtime rate: ";
+        cin >> rate;
+        if (rate < 0) {
+            cout << "Invalid overtime rate!";
+        }
+    } while (rate < 0);
+
+    do {
+        cout << "Enter overtime hours: ";
+        cin >> hours;
+        if (hours < 0) {
+            cout << "Invalid overtime hours!\n";
+        }
+    } while (hours < 0);
+    overtimePay = (rate * hours);
+    return overtimePay;
 }
 
-double netSalary(double gross, double totalDeductions){
+double grossSalary(double otPay) {
+    double grossSalary;
+    double basicSalary;
+    double allowance;
+    do {
+        cout << "\nEnter basic salary: ";
+        cin >> basicSalary;
+        if (basicSalary < 0) {
+            cout << "Invalid basic salary!";
+        }
+    } while (basicSalary < 0);
+
+    do {
+        cout << "\nEnter allowance: ";
+        cin >> allowance;
+        if (allowance < 0) {
+            cout << "Invalid allowance!";
+        }
+    } while (allowance < 0);
+    grossSalary = (basicSalary + allowance + otPay);
+    return grossSalary;
+}
+
+double deductions(double gross) {
+    double epf;
+    double socso;
+    double tax;
+    double deduction;
+    do {
+        cout << "\nEnter EPF rate (%): ";
+        cin >> epf;
+        if (epf < 0) {
+            cout << "Invalid EPF rate!";
+        }
+    } while (epf < 0);
+    epf = gross * (epf / 100.0);
+
+    do {
+        cout << "\nEnter SOCSO amount: ";
+        cin >> socso;
+        if (socso < 0) {
+            cout << "Invalid SOCSO amount!";
+        }
+    } while (socso < 0);
+
+    do {
+        cout << "\nEnter tax rate (%): ";
+        cin >> tax;
+        if (tax < 0) {
+            cout << "Invalid tax rate!";
+        }
+    } while (tax < 0);
+    tax = gross * (tax / 100.0);
+    deduction = (epf + socso + tax);
+    return deduction;    
+}
+
+double netSalary(double gross, double totalDeductions) {
     double netSalary;
-	netSalary = (gross - totalDeductions);
-	return netSalary;
+    netSalary = (gross - totalDeductions);
+    return netSalary;
 }
