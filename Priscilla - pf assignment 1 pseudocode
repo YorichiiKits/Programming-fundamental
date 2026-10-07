@@ -1,0 +1,16 @@
+START
+DO
+    otPay = overtimePay()
+    gross = grossSalary(otPay)
+    totalDeduction = deductions(gross)
+    net = netSalary(gross, totalDeduction)
+
+    DISPLAY "Gross Salary: RM", gross
+    DISPLAY "Total Deductions: RM", totalDeduction
+    DISPLAY "Net Salary: RM", net
+
+    DISPLAY "Do you want to continue? (Y/N)"
+    INPUT choice
+
+WHILE choice = 'Y' OR choice = 'y'
+END
