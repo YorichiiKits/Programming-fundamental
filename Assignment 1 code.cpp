@@ -1,4 +1,13 @@
 #include <iostream>
+#include <cctype> // For toupper()
+using namespace std;
+
+double overtimePay(void);
+double grossSalary(double otPay);
+double deductions(double gross);
+double netSalary(double gross, double totalDeductions);
+
+#include <iostream>
 using namespace std;
 
 double overtimePay(void);
@@ -7,16 +16,26 @@ double deductions(double gross);
 double netSalary(double gross, double totalDeductions);
 
 int main() {
-    double otPay = overtimePay();
-    double gross = grossSalary(otPay);
-    double totalDeduction = deductions(gross);
-    double net = netSalary(gross, totalDeduction);
+    char choice;
 
-    cout << "\n=============== SALARY SLIP ===============";
-    cout << "\nGross Salary:     RM" << gross; 
-    cout << "\nTotal Deductions: RM" << totalDeduction; 
-    cout << "\nNet Salary:       RM" << net << endl;
-    cout << "===========================================" << endl;
+    do {
+        double otPay = overtimePay();
+        double gross = grossSalary(otPay);
+        double totalDeduction = deductions(gross);
+        double net = netSalary(gross, totalDeduction);
+
+        cout << "\n=============== SALARY SLIP ===============";
+        cout << "\nGross Salary:     RM" << gross; 
+        cout << "\nTotal Deductions: RM" << totalDeduction; 
+        cout << "\nNet Salary:       RM" << net << endl;
+        cout << "===========================================\n" << endl;
+
+        cout << "Do you want to calculate another salary slip? (Y/N): ";
+        cin >> choice;
+
+    } while (choice == 'y' || choice == 'Y');
+
+    cout << "\nThank you for using the Salary Calculator. Goodbye!\n";
     return 0;
 }
 
