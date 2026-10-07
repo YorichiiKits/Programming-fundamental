@@ -1,13 +1,4 @@
 #include <iostream>
-#include <cctype> // For toupper()
-using namespace std;
-
-double overtimePay(void);
-double grossSalary(double otPay);
-double deductions(double gross);
-double netSalary(double gross, double totalDeductions);
-
-#include <iostream>
 using namespace std;
 
 double overtimePay(void);
